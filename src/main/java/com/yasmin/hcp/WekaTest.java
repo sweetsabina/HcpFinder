@@ -33,14 +33,14 @@ public class WekaTest {
 		Instances instances = loader.getDataSet();
 
 		System.out.println("#1------>"+instances.toSummaryString());
-		instances.deleteAttributeAt(instances.attribute("DEVICETYPE").index());
+		//instances.deleteAttributeAt(instances.attribute("DEVICETYPE").index());
 		instances.deleteAttributeAt(instances.attribute("ID").index());
-		instances.deleteAttributeAt(instances.attribute("PLATFORM_ID").index());
-		instances.deleteAttributeAt(instances.attribute("BIDREQUESTIP").index());
-		instances.deleteAttributeAt(instances.attribute("USERPLATFORMUID").index());
-		instances.deleteAttributeAt(instances.attribute("USERCITY").index());
-		instances.deleteAttributeAt(instances.attribute("USERAGENT").index());
-		instances.deleteAttributeAt(instances.attribute("CHANNELTYPE").index());
+		//instances.deleteAttributeAt(instances.attribute("PLATFORM_ID").index());
+		//instances.deleteAttributeAt(instances.attribute("BIDREQUESTIP").index());
+		//instances.deleteAttributeAt(instances.attribute("USERPLATFORMUID").index());
+		//instances.deleteAttributeAt(instances.attribute("USERCITY").index());
+		//instances.deleteAttributeAt(instances.attribute("USERAGENT").index());
+		//instances.deleteAttributeAt(instances.attribute("CHANNELTYPE").index());
 		
 		NumericToNominal numericToNominal = new NumericToNominal();
 		
@@ -73,10 +73,10 @@ public class WekaTest {
 		
 		Evaluation evaluation = new Evaluation(testInstances);
 		evaluation.evaluateModel(naiveBayes,testInstances);
-		CSVSaver predictedtCsvSaver = new CSVSaver();
-		predictedtCsvSaver.setFile(new File("src/main/resources/datasets/testingpredict.csv"));
-		predictedtCsvSaver.setInstances(testInstances);
-		predictedtCsvSaver.writeBatch();
+		//CSVSaver predictedtCsvSaver = new CSVSaver();
+		//predictedtCsvSaver.setFile(new File("src/main/resources/datasets/testingpredict.csv"));
+		//predictedtCsvSaver.setInstances(testInstances);
+		//predictedtCsvSaver.writeBatch();
 		
 		
 		
@@ -104,14 +104,14 @@ public class WekaTest {
 		Instances predictInstances = loader.getDataSet();
 		System.out.println("#test1------>"+predictInstances.toSummaryString());
 
-		predictInstances.deleteAttributeAt(predictInstances.attribute("DEVICETYPE").index());
+		//predictInstances.deleteAttributeAt(predictInstances.attribute("DEVICETYPE").index());
 		predictInstances.deleteAttributeAt(predictInstances.attribute("ID").index());
-		predictInstances.deleteAttributeAt(predictInstances.attribute("PLATFORM_ID").index());
-		predictInstances.deleteAttributeAt(predictInstances.attribute("BIDREQUESTIP").index());
-		predictInstances.deleteAttributeAt(predictInstances.attribute("USERPLATFORMUID").index());
-		predictInstances.deleteAttributeAt(predictInstances.attribute("USERCITY").index());
-		predictInstances.deleteAttributeAt(predictInstances.attribute("USERAGENT").index());
-		predictInstances.deleteAttributeAt(predictInstances.attribute("CHANNELTYPE").index());
+		//predictInstances.deleteAttributeAt(predictInstances.attribute("PLATFORM_ID").index());
+		//predictInstances.deleteAttributeAt(predictInstances.attribute("BIDREQUESTIP").index());
+		//predictInstances.deleteAttributeAt(predictInstances.attribute("USERPLATFORMUID").index());
+		//predictInstances.deleteAttributeAt(predictInstances.attribute("USERCITY").index());
+		//predictInstances.deleteAttributeAt(predictInstances.attribute("USERAGENT").index());
+		//predictInstances.deleteAttributeAt(predictInstances.attribute("CHANNELTYPE").index());
 		numericToNominal = new NumericToNominal();
 		numericToNominal.setInputFormat(predictInstances);
 		predictInstances = Filter.useFilter(predictInstances,numericToNominal);
